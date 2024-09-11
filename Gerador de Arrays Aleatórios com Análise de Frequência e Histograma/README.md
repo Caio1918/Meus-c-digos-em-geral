@@ -1,0 +1,1 @@
+O algoritmo visa gerar múltiplos arrays contendo valores aleatórios, a partir dos quais ele calcula a frequência dos valores gerados e, posteriormente, exibe essa distribuição tanto em uma tabela de frequência quanto em um histograma.
