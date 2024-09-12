@@ -26,6 +26,8 @@ df = df.reset_index()
 # Renomeando as colunas
 df.columns = ["Classe", "Frequência"]
 
+
+
 # Frequência relativa
 df["Frequência Relativa"] = df["Frequência"]/total
 
@@ -39,4 +41,11 @@ intervalos = pd.interval_range(start= v_min, end= end_corrigido, freq= h)
 
 # Atribuindo os Intervalos na Coluna Classe
 df["Classe"] = intervalos
+
+# Calculando os Pontos Médios
+pts_medios = []
+for intervalo in intervalos:
+    pts_medios.append(intervalo.mid)
+
+df["Pontos Médios"] = pts_medios
 print(df)
