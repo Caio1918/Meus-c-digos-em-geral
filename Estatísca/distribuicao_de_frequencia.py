@@ -1,5 +1,6 @@
 import pandas as pd
 from math import sqrt
+from math import ceil
 
 data = pd.Series([128, 100, 180, 150, 200, 90, 340, 105, 85, 270, 200, 65, 230, 150, 150, 120, 130, 80, 230, 200,
 110, 126, 170, 132, 140, 112, 90, 340, 170, 190])
@@ -24,7 +25,14 @@ df = pd.DataFrame(freq)
 df = df.reset_index()
 # Renomeando as colunas
 df.columns = ["Classe", "Frequência"]
-print(df)
 
 # Frequência relativa
 df["Frequência Relativa"] = df["Frequência"]/total
+
+# Alterado o intervalo de classes
+intervalos = pd.interval_range(start= v_min, end= v_max, freq= h)
+
+# Calculando a Amplitude de Classe (h)
+amp_classe = ceil(h)
+df["Classe"] = intervalos
+print(df)
