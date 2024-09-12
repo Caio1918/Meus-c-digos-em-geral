@@ -14,3 +14,14 @@ total = data.count()
 qtde_classes = round(sqrt(total))
 amplitude = v_max - v_min
 h =  amplitude/qtde_classes
+
+# Frequência absoluta
+freq = data.value_counts(bins= qtde_classes).sort_index()
+
+# Dataframe Distribuição de frequência
+df = pd.DataFrame(freq)
+# Resetando o index
+df = df.reset_index()
+# Renomeando as colunas
+df.columns = ["Classe", "Frequência"]
+print(df)
