@@ -5,20 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grid System</title>
-    <link rel="stylesheet" href=""https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-    crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
 <body>
-    
+    <div class="container bg-primary mt-4">
+        container
+    </div>
+
+    <div class="container mt-2 p-5 border">
+
+        <!-- Uma Linha Com um Único Elemento Ocupando as 12 Colunas -->
+        <div class="row">
+            <div class="col-12 border">
+                12 colunas
+            </div>
+        </div>
+        <!-- Uma linha com um único elemento ocupando 2 colunas -->
+        <div class="row">
+            <div class="col-2 mt-2 border">
+                2
+            </div>
+        </div>
+        <!-- Uma linha com um único elemento ocupando as 12 colunas -->
+        <div class="row">
+            <div class="col-12 border">
+                12 colunas
+            </div>
+        </div>
+        <!-- Uma linha com um único elemento ocupando as 2 colunas -->
+        <div class="row">
+            <div class="col-2 border">
+                2 colunas
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- aqui temos dois elementos div disputando espaço na mesma row -->
+            <!-- se a tela for pequena, cada um requer 12 colunas, causando empilhando -->
+            <!-- se a tela for pelo menos md, cada uma requer apenas 6 colunas, ficando
+            portanto uma do lado da outra -->
+
+            <div class="col-sm-12 col-md-6 mt-2 border">
+                sm: 12, md: 6
+            </div>
+            <div class="col-sm-12 col-md-6 mt-2 border">
+                sm: 12, md: 6
+            </div>
+        </div>
+    </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
 
-
-    <script src=""https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
