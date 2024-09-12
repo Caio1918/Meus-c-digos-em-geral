@@ -25,3 +25,6 @@ df = df.reset_index()
 # Renomeando as colunas
 df.columns = ["Classe", "Frequência"]
 print(df)
+
+# Frequência relativa
+df["Frequência Relativa"] = df["Frequência"]/total
