@@ -48,4 +48,7 @@ for intervalo in intervalos:
     pts_medios.append(intervalo.mid)
 
 df["Pontos Médios"] = pts_medios
+
+# Frequência Acumulada
+df["Frequência Acumulada"] = df["Frequência"].cumsum()
 print(df)
