@@ -29,10 +29,14 @@ df.columns = ["Classe", "Frequência"]
 # Frequência relativa
 df["Frequência Relativa"] = df["Frequência"]/total
 
-# Alterado o intervalo de classes
-intervalos = pd.interval_range(start= v_min, end= v_max, freq= h)
-
-# Calculando a Amplitude de Classe (h)
+# Novo Intervalo de Classe
+# Corrigindo o Valor Final
 amp_classe = ceil(h)
+end_corrigido = v_min + h * qtde_classes
+
+# Criando os intervalos
+intervalos = pd.interval_range(start= v_min, end= end_corrigido, freq= h)
+
+# Atribuindo os Intervalos na Coluna Classe
 df["Classe"] = intervalos
 print(df)
