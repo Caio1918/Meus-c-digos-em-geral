@@ -42,3 +42,7 @@ for intervalo in intervalos:
 
 df["Pontos Médios"] = pts_médios
 # -------------------
+
+# Coluna de frequência relativa -------------
+df["Frequência Relativa"] = df["Frequência"] / total
+# ----------------------
