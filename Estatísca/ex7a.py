@@ -34,3 +34,11 @@ intervalos = pd.interval_range(start= v_min, end= final_corrigido, freq= h)
 # Atribuindo o novo intervalo
 df["Classe"] = intervalos
 # ----------------------------
+
+# Coluna pontos médios --------------
+pts_médios = []
+for intervalo in intervalos:
+    pts_médios.append(intervalo.mid)
+
+df["Pontos Médios"] = pts_médios
+# -------------------
