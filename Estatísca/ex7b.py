@@ -13,12 +13,17 @@ amp = v_max - v_min
 qtde_classes = 5
 h = ceil(amp/qtde_classes)
 
+# print(f"Total: {total} \nMax: {v_max} \nMin: {v_min} \nAmplitude: {amp} \nTotal de classes: {qtde_classes} \nAmplitude de classe: {h}")
+
 # Definindo a frequência e criando DataFrame
 freq = dados.value_counts(bins=qtde_classes).sort_index()
 df = pd.DataFrame(freq)
 df = df.reset_index()
 df.columns = ["Classe", "Frequência"]
 
-
+# Definindo o intervalo
+end = v_min + h * qtde_classes
+intervalos = pd.interval_range(start= v_min, end= end, freq= h)
+df["Classe"] = intervalos
 
 print(df)
