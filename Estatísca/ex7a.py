@@ -49,5 +49,32 @@ df["Frequência Relativa"] = df["Frequência"] / total
 
 # Coluna de frequência absoluta -------------
 df["Frequência Absoluta"] = df["Frequência"].cumsum()
-print(df)
+# print(df)
 # -----------------------
+
+
+# -------------------- Gráficos histograma --------------------
+# Histograma de frequência ------------
+
+classes = []
+for intervalo in intervalos:
+    classes.append(intervalo.left)
+classes.append(v_max)
+
+print(classes)
+
+hist_freq = dados.hist(
+    bins= classes,
+    color= "lightblue",
+    edgecolor= "Black",
+    grid= False
+)
+
+hist_freq.set(
+    xlabel= "Preço [US$]",
+    ylabel= "Frequência - Número de navegadores GPS",
+    title= "Distribuição de frequência dos preços de GPS",
+    xticks= df["Pontos Médios"],
+    yticks= range(0, df["Frequência"].max()+2,2)
+)
+# --------------------------
