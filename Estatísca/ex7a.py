@@ -46,3 +46,8 @@ df["Pontos Médios"] = pts_médios
 # Coluna de frequência relativa -------------
 df["Frequência Relativa"] = df["Frequência"] / total
 # ----------------------
+
+# Coluna de frequência absoluta -------------
+df["Frequência Absoluta"] = df["Frequência"].cumsum()
+print(df)
+# -----------------------
