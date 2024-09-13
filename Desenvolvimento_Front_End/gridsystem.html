@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Classes Container -->
+    <div class="container bg-primary mt-4">
+        container
+    </div>
+    <div class="container-fluid bg-primary mt-4">
+        container-fluid
+    </div>
+    <div class="container-sm bg-primary mt-4">
+        container-sm
+    </div>
+    <div class="container-md bg-primary mt-4">
+        container-md
+    </div>
+    <div class="container-lg bg-primary mt-4">
+        container-lg
+    </div>
+    <div class="container-xl bg-primary mt-4">
+        container-xl
+    </div>
+
+    <!-- Colunas e Linhas-->
+    <div class="container mt-2 p-5 border">
+
+        <!-- Uma Linha Com um Único Elemento Ocupando as 12 Colunas -->
+        <div class="row">
+            <div class="col-12 border">
+                12 colunas
+            </div>
+        </div>
+        <!-- Uma linha com um único elemento ocupando 2 colunas -->
+        <div class="row">
+            <div class="col-2 mt-2 border">
+                2
+            </div>
+        </div>
+        <!-- Uma linha com um único elemento ocupando as 12 colunas -->
+        <div class="row">
+            <div class="col-12 mt-2 border">
+                12 colunas
+            </div>
+        </div>
+        <!-- Uma linha com um único elemento ocupando as 2 colunas -->
+        <div class="row">
+            <div class="col-2 mt-2 border">
+                2 colunas
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- aqui temos dois elementos div disputando espaço na mesma row -->
+            <!-- se a tela for pequena, cada um requer 12 colunas, causando empilhando -->
+            <!-- se a tela for pelo menos md, cada uma requer apenas 6 colunas, ficando
+            portanto uma do lado da outra -->
+
+            <div class="col-sm-12 col-md-6 mt-2 border">
+                sm: 12, md: 6
+            </div>
+            <div class="col-sm-12 col-md-6 mt-2 border">
+                sm: 12, md: 6
+            </div>
+        </div>
+
+        <!-- Largura igual, sem empilhar -->
+        <div class="row">
+            <div class="col border mt-2">
+                Largura igual, sem empilhar
+            </div>
+            <div class="col border mt-2">
+                Largura igual, sem empilhar
+            </div>
+            <div class="col border mt-2">
+                Largura igual, sem empilhar
+            </div>
+        </div>
+    </div>
+
+    <!-- Leyout automático-->
+    <div class="container mt-2 p-5 border">
+        <div class="row">
+            <div class="col border mt-2">
+                auto
+            </div>
+            <div class="col-5 border mt-2">
+                5
+            </div>
+            <div class="col-4 border mt-2">
+                4
+            </div>
+        </div>
+    </div>
+
+    <!-- Largura igual com empilhamento até um breakpoint desejado -->
+    <div class="container mt-2 p-5 border">
+
+        <div class="row">
+            <div class="col-md border mt-2">
+                md
+            </div>
+            <div class="col-md border mt-2">
+                md
+            </div>
+            <div class="col-md border mt-2">
+                md
+            </div>
+        </div>
+    </div>
+
+    <!-- Deslocamento com offset-->
+    <div class="container mt-2 p-5 border">
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3 border my-2">
+                col: 6, off: 3
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 offset-md-0 border my-2">
+                col: 4, off: 2
+            </div>
+        </div>
+    </div>
+
+    <!-- Align-items -->
+    <div class="container mt-2 p-5 border">
+
+        <div class="row align-items-start border bg-light" style="height: 200px;">
+            <div class="col border">
+                top (start de cima para baixo)
+            </div>
+            <div class="col border">
+                top (start de cima para baixo)
+            </div>
+        </div>
+
+        <div class="row align-items-center border bg-light my-2" style="height: 200px;">
+            <div class="col border">center</div>
+            <div class="col border">center</div>
+        </div>
+
+        <div class="row align-items-end border bg-light my-2" style="height: 200px;">
+            <div class="col border">bottom</div>
+            <div class="col border">bottom</div>
+        </div>
+    </div>
+
+    <!-- Alinhamento de eixo -->
+    <div class="row border my-2 align-items-center" style="height: 200px;">
+        <div class="col border align-self-start">top</div>
+        <div class="col border align-self-center">center</div>
+        <div class="col border align-self-end">bottom</div>
+    </div>
+
+    <!-- Alinhamento de eixo principal -->
+    <div class="container mt-2 p-5 border">
+        <div class="row justify-content-start my-2">
+            <div class="col-4 border">start</div>
+            <div class="col-4 border">start</div>
+        </div>
+
+        <div class="row justify-content-center my-2">
+            <div class="col-4 border">center</div>
+            <div class="col-4 border">center</div>
+        </div>
+
+        <div class="row justify-content-end my-2">
+            <div class="col-4 border">end</div>
+            <div class="col-4 border">end</div>
+        </div>
+
+        <div class="row justify-content-around my-2">
+            <div class="col-4 border">around</div>
+            <div class="col-4 border">around</div>
+        </div>
+
+        <div class="row justify-content-between my-2">
+            <div class="col-4 border">between</div>
+            <div class="col-4 border">between</div>
+        </div>
+
+        <div class="container mt-2 p-5 border">
+            <div class="row">
+                <!-- d-flex: display: flex; -->
+                <!-- padrão row da esquerda para a direita -->
+                <div class="d-flex bg-light border my-2">
+                    <div class="p-4 border mx-2">1</div>
+                    <div class="p-4 border mx-2">2</div>
+                    <div class="p-4 border mx-2">3</div>
+                </div>
+                <!-- flex-row-reverse da direita para a esquerda -->
+                <div class="d-flex flex-row-reverse bg-light border my-2">
+                    <div class="p-4 border mx-2">1</div>
+                    <div class="p-4 border mx-2">2</div>
+                    <div class="p-4 border mx-2">3</div>
+                </div>
+                <!-- flex-column: eixo principal se torna o vertical -->
+                <!-- posicionamento de cima para baixo -->
+                <div class="d-flex flex-column bg-light border my-2">
+                    <div class="p-4 border mx-2">1</div>
+                    <div class="p-4 border mx-2">2</div>
+                    <div class="p-4 border mx-2">3</div>
+                </div>
+                <!-- flex-column-reverse: de baixo para cima -->
+                <div class="d-flex flex-column-reverse bg-light border my-2">
+                    <div class="p-4 border mx-2">1</div>
+                    <div class="p-4 border mx-2">2</div>
+                    <div class="p-4 border mx-2">3</div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>
