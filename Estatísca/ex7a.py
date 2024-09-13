@@ -1,6 +1,7 @@
 # Conjunto de dados vendas 
 
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from math import sqrt
 from math import ceil
@@ -61,20 +62,26 @@ for intervalo in intervalos:
     classes.append(intervalo.left)
 classes.append(v_max)
 
-print(classes)
+plt.figure(figsize=(6,5))
+plt.hist(x=df["Pontos Médios"], bins=classes, weights=df["Frequência"], edgecolor="black")
+plt.title("Histograma - Distribuição de frequências das vendas")
+plt.xlabel("Valor Vendido")
+plt.ylabel("Frequência")
 
-hist_freq = dados.hist(
-    bins= classes,
-    color= "lightblue",
-    edgecolor= "Black",
-    grid= False
-)
+# Colocando os ticks e os limites das classes
+plt.xticks(np.concatenate([classes, df["Pontos Médios"]]), rotation=45)
 
-hist_freq.set(
-    xlabel= "Preço [US$]",
-    ylabel= "Frequência - Número de navegadores GPS",
-    title= "Distribuição de frequência dos preços de GPS",
-    xticks= df["Pontos Médios"],
-    yticks= range(0, df["Frequência"].max()+2,2)
-)
+plt.show()
 # --------------------------
+
+# Histograma de frequência relativa ------------------
+plt.figure(figsize=(6,5))
+plt.hist(x=df["Pontos Médios"], bins=classes, weights=df["Frequência Relativa"], edgecolor="Black")
+plt.title("Frequência Relativa")
+plt.xlabel("Valor Vendido")
+plt.ylabel("Frequência")
+
+# Colocando os os limites das classes e os pontos médios
+plt.xticks(np.concatenate([classes, df["Pontos Médios"]]), rotation=45)
+
+plt.show()
