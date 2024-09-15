@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import numpy as np
 import pandas as pd
 import random
@@ -32,3 +33,15 @@ df["Classe"] = intervalos
 df["Frequência Relativa"] = df["Frequência"] / total
 
 print(df)
+=======
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+x = np.random.normal(20, 10, 10,)
+df = pd.DataFrame(x, columns=['Valores'])
+
+print(df)
+print(f'Organizado: {sorted(x)}')
+print(f'{x[0]:.2f}')
+>>>>>>> f07ab371b8edba9f9b5677fd34f181ca54201552
