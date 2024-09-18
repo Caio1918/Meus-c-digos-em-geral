@@ -12,7 +12,7 @@ dados = pd.Series([2114, 2468, 7119, 1876, 4105, 3183, 1932, 1355, 4278, 1030, 2
 v_max = dados.max()
 v_min = dados.min()
 total = dados.count()
-qtde_classes = 8
+qtde_classes = round(sqrt(total))
 amplitude = v_max - v_min
 h = amplitude/qtde_classes
 # ----------------------
