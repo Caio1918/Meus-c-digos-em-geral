@@ -18,5 +18,7 @@ df = pd.DataFrame(freq)
 df = df.reset_index()
 df.columns = ["Classe", "Frequência"]
 
-
+end_cor = v_min + h * qtde_classes
+intervalos = pd.interval_range(start=v_min, end=end_cor, freq=h)
+df["Classe"] = intervalos
 print(df)
