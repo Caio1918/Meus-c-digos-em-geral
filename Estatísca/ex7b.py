@@ -35,6 +35,7 @@ df["Frequência Acumulado"] = df["Frequência"].cumsum()
 print(df)
 
 # --------------- Histograma ---------------
+# Frequência
 classes = []
 for intervalo in intervalos:
     classes.append(intervalo.left)
@@ -44,6 +45,15 @@ plt.hist(x=df["Pontos Médios"], bins=classes, weights=df["Frequência"], edgeco
 plt.title("Histograma de frequência")
 plt.xlabel("Nivel de Ardência")
 plt.ylabel("Frequência")
+plt.xticks(np.concatenate([classes, df["Pontos Médios"]]), rotation=45)
+
+
+# Frequência Relativa
+plt.figure(figsize=(6,5))
+plt.hist(x=df["Pontos Médios"], bins=classes, weights=df["Frequência Relativa"], edgecolor="black")
+plt.title("Histograma de frequência relativa")
+plt.xlabel("Nível de Ardência")
+plt.ylabel("Frequência Relativa")
 plt.xticks(np.concatenate([classes, df["Pontos Médios"]]), rotation=45)
 
 plt.show()
