@@ -43,4 +43,11 @@ plt.xlabel("Tempos de Prova (em Segundos)")
 plt.ylabel("Frequênciad")
 plt.xticks(np.concatenate([classes, df["Pontos Médios"]]), rotation=45)
 
+# Frequência Relativa
+plt.figure(figsize=(6,5))
+plt.hist(x=df["Pontos Médios"], bins=classes, weights=df["Frequência"], edgecolor="black")
+plt.title("Histograma Frequência Relativa")
+plt.xlabel("Tempos de Prova (em Segundos)")
+plt.xticks(np.concatenate([classes, df["Pontos Médios"]]), rotation=45)
+
 plt.show()
