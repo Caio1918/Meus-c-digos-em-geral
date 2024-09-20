@@ -48,8 +48,8 @@ df["Pontos Médios"] = pts_médios
 df["Frequência Relativa"] = df["Frequência"] / total
 # ----------------------
 
-# Coluna de frequência absoluta -------------
-df["Frequência Absoluta"] = df["Frequência"].cumsum()
+# Coluna de frequência acumulada -------------
+df["Frequência Acumulada"] = df["Frequência"].cumsum()
 # print(df)
 # -----------------------
 
@@ -115,4 +115,28 @@ plt.title("Distribuição de Frequencia Relativa")
 plt.xlabel("Valores")
 plt.ylabel("Frequência Relativa")
 
+# plt.show()
+
+# ---------------- Gráfico de Ogiva (Frequência Acumulada)----------------
+# Calculo dos pontos médios fictícios
+ini_ogiva = [classes[1]-amplitude]
+
+# Adicionar as fronteiras superiores das classes ao eixo x e inserção do ponto inicial acumulado em zero
+x_data = ini_ogiva + [limite for limite in classes[1:]]
+y_data = np.concatenate([[0], df["Frequência Acumulada"]])
+
+# Plotagem da ogiva 
+plt.clf()
+plt.plot(x_data, y_data, marker="o")
+
+# Título 
+plt.title("Ogiva - Frequécia Acumulada")
+plt.xlabel("Valores")
+plt.ylabel("Frequência Acumulada")
+
+# Usa os pontos médios como maior ticks no eixo x
+plt.xticks(x_data)
+
+# Plotagem do gráfico
 plt.show()
+
