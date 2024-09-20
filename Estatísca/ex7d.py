@@ -13,3 +13,8 @@ amp = v_max - v_min
 qtde_classes = 8
 h = ceil(amp/qtde_classes)
 
+# Frequencia e DataFrame
+freq = dados.value_counts(bins=qtde_classes).sort_index()
+df = pd.DataFrame(freq)
+df = df.reset_index()
+df.columns = ["Classe", "Frequênciad"]
