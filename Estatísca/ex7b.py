@@ -26,4 +26,10 @@ end = v_min + h * qtde_classes
 intervalos = pd.interval_range(start= v_min, end= end, freq= h)
 df["Classe"] = intervalos
 
+pts_medios = [inter.mid for inter in intervalos]
+df["Pontos Médios"] = pts_medios
+
+df["Frequência Relativa"] = df["Frequência"] / total
+df["Frequência Acumulado"] = df["Frequência"].cumsum()
+
 print(df)
