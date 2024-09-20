@@ -208,4 +208,20 @@ plt.title("Séries Temporais")
 plt.xlabel("dias")
 plt.ylabel("Valore")
 
+# plt.show()
+
+# ---------------- Gráfico de Boxplot ----------------
+data = pd.DataFrame({
+    "Total" : [dados]
+})
+
+plt.figure(figsize=(6,5))
+plt.boxplot(data["Total"].values[0])
+
+# Títulos
+plt.title("Boxplot das Vendas")
+plt.xlabel("Vendas")
+plt.ylabel("Valores")
+
+# Mostra o Gráfico
 plt.show()
