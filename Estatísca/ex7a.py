@@ -197,4 +197,15 @@ plt.xlabel("Preço Médios (R$)")
 plt.ylabel("Unidades Vendidas")
 
 # Mostra o Gráfico
+# plt.show()
+
+# ---------------- Séries Temporais ----------------
+plt.figure(figsize=(6,5))
+plt.plot(dados.index + 1, dados, marker="o")
+
+#Títulos
+plt.title("Séries Temporais")
+plt.xlabel("dias")
+plt.ylabel("Valore")
+
 plt.show()
