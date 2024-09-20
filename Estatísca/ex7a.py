@@ -36,7 +36,7 @@ intervalos = pd.interval_range(start= v_min, end= final_corrigido, freq= h)
 df["Classe"] = intervalos
 # ----------------------------
 
-# Coluna pontos médios --------------
+#---------------- Coluna pontos médios --------------
 pts_médios = []
 for intervalo in intervalos:
     pts_médios.append(intervalo.mid)
@@ -44,7 +44,7 @@ for intervalo in intervalos:
 df["Pontos Médios"] = pts_médios
 # -------------------
 
-# Coluna de frequência relativa -------------
+#---------------- Coluna de frequência relativa -------------
 df["Frequência Relativa"] = df["Frequência"] / total
 # ----------------------
 
@@ -55,7 +55,7 @@ df["Frequência Absoluta"] = df["Frequência"].cumsum()
 
 
 # -------------------- Gráficos histograma --------------------
-# Histograma de frequência ------------
+#---------------- Histograma de frequência ------------
 
 classes = []
 for intervalo in intervalos:
@@ -71,10 +71,10 @@ plt.ylabel("Frequência")
 # Colocando os ticks e os limites das classes
 plt.xticks(np.concatenate([classes, df["Pontos Médios"]]), rotation=45)
 
-plt.show()
+# plt.show()
 # --------------------------
 
-# Histograma de frequência relativa ------------------
+#---------------- Histograma de frequência relativa ------------------
 plt.figure(figsize=(6,5))
 plt.hist(x=df["Pontos Médios"], bins=classes, weights=df["Frequência Relativa"], edgecolor="Black")
 plt.title("Frequência Relativa")
@@ -83,5 +83,23 @@ plt.ylabel("Frequência")
 
 # Colocando os os limites das classes e os pontos médios
 plt.xticks(np.concatenate([classes, df["Pontos Médios"]]), rotation=45)
+
+# plt.show()
+
+#---------------- Poligono de frequência ----------------
+# Calculando os pontos médios ficticios
+fic_esq = [df["Pontos Médios"].iloc[0] - amplitude]
+fic_dir = [df["Pontos Médios"].iloc[-1] + amplitude]
+
+# Construção dos dados com inserção dos pontos médios ficticios
+x_data = np.concatenate([fic_esq, df["Pontos Médios"], fic_dir])
+y_data = np.concatenate([[0], df["Frequência"], [0]])
+
+# Plotagem do gráfico
+plt.figure(figsize=(6,5))
+plt.plot(x_data, y_data, marker="o")
+plt.title("Distribuição de Frequência")
+plt.xlabel("Unidades Vendidas")
+plt.ylabel("Frequência")
 
 plt.show()
