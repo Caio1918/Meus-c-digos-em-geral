@@ -18,3 +18,9 @@ freq = dados.value_counts(bins=qtde_classes).sort_index()
 df = pd.DataFrame(freq)
 df = df.reset_index()
 df.columns = ["Classe", "Frequênciad"]
+
+# Intervalos
+end_cor = v_min + h * qtde_classes
+intervalos = pd.interval_range(start=v_min, end=end_cor, freq=h)
+df["Classe"] = intervalos
+
