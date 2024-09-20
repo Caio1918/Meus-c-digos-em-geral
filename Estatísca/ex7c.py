@@ -24,4 +24,7 @@ df["Classe"] = intervalos
 
 pts_medios = [inter.mid for inter in intervalos]
 df["Pontos Médios"] = pts_medios
+
+df["Frequência Relativa"] = df["Frequência"] / total
+df["Frequência Acumulada"] = df["Frequência"].cumsum()
 print(df)
