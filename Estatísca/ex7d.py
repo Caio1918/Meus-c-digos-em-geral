@@ -32,3 +32,15 @@ df["Pontos Médios"] = pts_medios
 df["Frequência Relativa"] = df["Frequência"] / total
 df["Frequência Acumulada"] = df["Frequência"].cumsum()
 
+# -------------- Histograma --------------
+# Frequência 
+classes = [inter.left for inter in intervalos]
+
+plt.figure(figsize=(6,5))
+plt.hist(x=df["Pontos Médios"], bins=classes, weights=df["Frequência"], edgecolor="black")
+plt.title("Histograma de Frequência")
+plt.xlabel("Tempos de Prova (em Segundos)")
+plt.ylabel("Frequênciad")
+plt.xticks(np.concatenate([classes, df["Pontos Médios"]]), rotation=45)
+
+plt.show()
