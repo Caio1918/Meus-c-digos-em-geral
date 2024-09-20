@@ -185,4 +185,16 @@ plt.pie(vendas_categoria["Unidades Vendidas"], labels=vendas_categoria["Categori
 plt.title("Gráfico de pizza")
 
 # Mostra o gráfico 
+# plt.show()
+
+# ---------------- Gráfico de dispersão ----------------
+plt.figure(figsize=(6,5))
+plt.scatter(vendas_categoria["Preço Médio (R$)"], vendas_categoria["Unidades Vendidas"])
+
+# Títulos 
+plt.title("Gráfico de Dispersão - Unidades vs. Preço")
+plt.xlabel("Preço Médios (R$)")
+plt.ylabel("Unidades Vendidas")
+
+# Mostra o Gráfico
 plt.show()
