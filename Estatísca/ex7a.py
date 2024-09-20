@@ -99,7 +99,20 @@ y_data = np.concatenate([[0], df["Frequência"], [0]])
 plt.figure(figsize=(6,5))
 plt.plot(x_data, y_data, marker="o")
 plt.title("Distribuição de Frequência")
-plt.xlabel("Unidades Vendidas")
+plt.xlabel("Valores")
 plt.ylabel("Frequência")
+
+# plt.show()
+
+# ---------------- Poligono de Frequência Relativa ----------------
+# O calculo dos pontos médios continuam os mesmo de antes até o x_data
+y_data = np.concatenate([[0], df["Frequência Relativa"], [0]])
+
+# Plotagem do gráfico
+plt.figure(figsize=(6,5))
+plt.plot(x_data, y_data, marker="o")
+plt.title("Distribuição de Frequencia Relativa")
+plt.xlabel("Valores")
+plt.ylabel("Frequência Relativa")
 
 plt.show()
