@@ -17,7 +17,7 @@ h = ceil(amp/qtde_classes)
 freq = dados.value_counts(bins=qtde_classes).sort_index()
 df = pd.DataFrame(freq)
 df = df.reset_index()
-df.columns = ["Classe", "Frequênciad"]
+df.columns = ["Classe", "Frequência"]
 
 # Intervalos
 end_cor = v_min + h * qtde_classes
@@ -27,3 +27,8 @@ df["Classe"] = intervalos
 # Pontos Médios
 pts_medios = [inter.mid for inter in intervalos]
 df["Pontos Médios"] = pts_medios
+
+# Frequência Relativa e Acumulada
+df["Frequência Relativa"] = df["Frequência"] / total
+df["Frequência Acumulada"] = df["Frequência"].cumsum()
+
