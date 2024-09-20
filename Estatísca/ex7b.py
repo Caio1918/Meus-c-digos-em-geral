@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from math import sqrt, ceil
+from math import ceil
 import matplotlib.pyplot as plt
 
 dados = pd.Series([35,51,44,42,37,38,36,39,44,43,40,40,32,39,41,38,42,39,40,46,37,35,41,39])
