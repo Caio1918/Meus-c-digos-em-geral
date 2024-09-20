@@ -24,3 +24,6 @@ end_cor = v_min + h * qtde_classes
 intervalos = pd.interval_range(start=v_min, end=end_cor, freq=h)
 df["Classe"] = intervalos
 
+# Pontos Médios
+pts_medios = [inter.mid for inter in intervalos]
+df["Pontos Médios"] = pts_medios
