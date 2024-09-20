@@ -174,4 +174,15 @@ ax.set_xlabel("Categorias")
 ax.set_ylabel("Unidades Vendidas")
 ax2.set_ylabel("Frequência Acumulada")
 
+# plt.show()
+
+# ----------------Gráfico de pizza ----------------
+plt.figure(figsize=(5,5))
+
+plt.pie(vendas_categoria["Unidades Vendidas"], labels=vendas_categoria["Categoria"], autopct="1%.1f%%")
+
+# Título
+plt.title("Gráfico de pizza")
+
+# Mostra o gráfico 
 plt.show()
