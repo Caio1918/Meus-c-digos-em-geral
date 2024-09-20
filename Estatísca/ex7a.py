@@ -17,6 +17,17 @@ amplitude = v_max - v_min
 h = amplitude/qtde_classes
 # ----------------------
 
+# Tabela de categorias 
+categorias = ['TVs', 'Laptops', 'Celulares', 'Tablets']
+unidades_vendidas = [60, 80, 200, 50]
+precos_medios = [2000, 3500, 1200, 1800]
+# Construção do DataFrame
+vendas_categoria = pd.DataFrame({
+    'Categoria': categorias,
+    'Unidades Vendidas': unidades_vendidas,
+    'Preço Médio (R$)': precos_medios
+})
+
 # Construção da tabela -----------
 freq = dados.value_counts(bins= qtde_classes).sort_index()
 
@@ -138,5 +149,29 @@ plt.ylabel("Frequência Acumulada")
 plt.xticks(x_data)
 
 # Plotagem do gráfico
-plt.show()
+# plt.show()
 
+# ---------------- Gráfico de Pareto ----------------
+# Ordenando os valores em ordem decrescente
+decrescente = vendas_categoria.sort_values(by="Unidades Vendidas", ascending=False)
+decrescente["Frequência Acumulada"] = decrescente["Unidades Vendidas"].cumsum()
+
+# Agora teremos 2 eixos y
+fig, ax = plt.subplots(figsize=(6,5))
+
+# Cria o primeiro eixo x vinculado ao eixo y à esquerda e plota o gráfico no eixo y à esquerda
+ax.bar(decrescente["Categoria"], decrescente["Unidades Vendidas"])
+
+# Copia o segundo eixo x vinculado ao eixo y à direita
+ax2 = ax.twinx()
+# Plota o gráfico vinculado ao eixo y à direita
+ax2.plot(decrescente["Categoria"], decrescente["Frequência Acumulada"], 
+         color="r", marker="o", label="Frequência Acumulada")
+
+# Titulos 
+ax.set_title("Gráfico de Pareto")
+ax.set_xlabel("Categorias")
+ax.set_ylabel("Unidades Vendidas")
+ax2.set_ylabel("Frequência Acumulada")
+
+plt.show()
