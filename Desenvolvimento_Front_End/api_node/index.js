@@ -14,6 +14,10 @@ let filmes = [
     
 ]
 
+app.get("/filmes", (req, res) => {
+  res.json(filmes)
+})
+
 //GET http://localhost:3000/hey
 app.get("/hey", (req, res) => {
     res.send("hey")
