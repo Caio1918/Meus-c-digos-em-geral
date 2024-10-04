@@ -18,6 +18,18 @@ app.get("/filmes", (req, res) => {
   res.json(filmes)
 })
 
+app.post("/filmes", (req, res) => {
+  //Obtém os dados enviados pelo cliente
+  const titulo = req.body.titulo
+  conts = sinopse = req.body.sinopse
+  //Monta um objeto agrupando os dados. Ele representa um novo filme
+  const filme = {titulo: titulo, sinopse: sinopse}
+  //Adiciona o novo filme à base
+  filmes.push(filme)
+  //Responde ao cliente. Aqui, optamos por devolver a base interira ao clientne.
+  res.json(filmes)
+})
+
 //GET http://localhost:3000/hey
 app.get("/hey", (req, res) => {
     res.send("hey")
