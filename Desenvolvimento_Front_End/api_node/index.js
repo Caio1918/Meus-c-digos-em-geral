@@ -1,6 +1,9 @@
 const express = require ("express")
+const cors = require ("cors")
 const app = express()
+
 app.use(express.json())
+app.use(cors())
 
 let filmes = [
     {
@@ -21,7 +24,7 @@ app.get("/filmes", (req, res) => {
 app.post("/filmes", (req, res) => {
   //Obtém os dados enviados pelo cliente
   const titulo = req.body.titulo
-  conts = sinopse = req.body.sinopse
+  const sinopse = req.body.sinopse
   //Monta um objeto agrupando os dados. Ele representa um novo filme
   const filme = {titulo: titulo, sinopse: sinopse}
   //Adiciona o novo filme à base
