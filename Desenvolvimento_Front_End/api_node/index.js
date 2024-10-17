@@ -1,9 +1,22 @@
 const express = require ("express")
 const cors = require ("cors")
+const { default: mongoose } = require("mongoose")
 const app = express()
 
 app.use(express.json())
 app.use(cors())
+
+const Filmes = mongoose.model ("Filme", mongoose.Schema ({
+  titulo: {type: String},
+  sinopse: {type: String},
+  ano: {type: String},
+  classificacao: {type: String}
+}))
+
+async function conectarAoMongoDB() {
+  await 
+  mongoose.connect("mongodb+srv://caioonha:<db_password>@cluster0.wak6h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+}
 
 let filmes = [
     {
@@ -47,5 +60,13 @@ app.get("/hey", (req, res) => {
     res.send("hey")
 })
 
-app.listen(3000, () => console.log("up and running"))
+app.listen(3000, () => {
+  try{
+    conectarAoMongoDB()
+    console.log("Up And Running")
+  }
+  catch(e){
+    console.log("Erro", e)
+  }
+})
 
