@@ -14,9 +14,13 @@ async function obterFilmes() {
         let linha = corpoTabela.insertRow(0)
         let celulaTitulo = linha.insertCell(0)
         let celulaSinopse = linha.insertCell(1)
+        let celulaAno = linha.insertCell(2)
+        let celulaClassificacao = linha.insertCell(3)
 
         celulaTitulo.innerHTML = filme.titulo
         celulaSinopse.innerHTML = filme.sinopse
+        celulaAno.innerHTML = filme.ano
+        celulaClassificacao.innerHTML = filme.classificacao 
     }
 }
 
