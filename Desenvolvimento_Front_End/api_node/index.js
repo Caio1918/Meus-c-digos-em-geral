@@ -29,10 +29,15 @@ app.post("/filmes", (req, res) => {
   //Obtém os dados enviados pelo cliente
   const titulo = req.body.titulo
   const sinopse = req.body.sinopse
+  const ano = req.body.ano
+  const classificacao = req.body.classificacao
+
   //Monta um objeto agrupando os dados. Ele representa um novo filme
-  const filme = {titulo: titulo, sinopse: sinopse}
+  const filme = {titulo: titulo, sinopse: sinopse, ano: ano, classificacao: classificacao}
+
   //Adiciona o novo filme à base
-  filmes.push(filme)
+  filmes.push(filme
+    )
   //Responde ao cliente. Aqui, optamos por devolver a base interira ao clientne.
   res.json(filmes)
 })
