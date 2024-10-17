@@ -31,14 +31,33 @@
                 </div>
 
                 <div>
-                    <div class="col-md-8 col-lg-4">
+                    <div class="col-md-8 col-lg-12">
 
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="sinopseInput" placeholder="Sinopse do filme">
                             <label for="sinopseInput">Sinopse do filme</label>
                         </div>
-
                     </div>
+
+                    <div class="col-md-8 col-lg-12">
+                        <div class="form-floating mb-3">
+                            <input type="number" min="1880" max="2024" class="form-control" id="anoInput" placeholder="Ano de lancamento">
+                            <label for="anoInput">Ano de lançamento do filme</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 col-lg-12">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Classificação do filme" name="" id="ClassificacaoInput">
+                                <option value="5">Excelente</option>
+                                <option value="4">Bom</option>
+                                <option value="3">Regular</option>
+                                <option value="2">Ruim</option>
+                                <option value="1">Péssimo</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-8">
