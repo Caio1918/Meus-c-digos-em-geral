@@ -8,11 +8,15 @@ app.use(cors())
 let filmes = [
     {
       titulo: "Forrest Gump - Contador de Histórias",
-      sinopse: "Quarenta anos da história dos Estados Unidos, vistos pelos olhos de Forrest Gump (Tom Hanks), um rapaz com QI abaixo da média e boas intenções."  
+      sinopse: "Quarenta anos da história dos Estados Unidos, vistos pelos olhos de Forrest Gump (Tom Hanks), um rapaz com QI abaixo da média e boas intenções." ,
+      ano: 1994,
+      classificacao: "A"  
     },
     {
       titulo: "Um Sonho de Liberdade",
-      sinopse: "Em 1946, Andy Dufresne (Tim Robbins), um jovem e bem sucedido banqueiro, tem a sua vida radicalmente modificada ao ser condenado por um crime quenunca cometeu, o homicídio de sua esposa e do amante dela"
+      sinopse: "Em 1946, Andy Dufresne (Tim Robbins), um jovem e bem sucedido banqueiro, tem a sua vida radicalmente modificada ao ser condenado por um crime quenunca cometeu, o homicídio de sua esposa e do amante dela",
+      ano: 1994,
+      classificacao: "A"
     }
     
 ]
