@@ -1,1 +1,1 @@
-Está pasta se refere ao códigos feitos em aulas ou estudanto estatística
+Este pasta se refere aos códigos feitos em aulas ou estudanto estatística
