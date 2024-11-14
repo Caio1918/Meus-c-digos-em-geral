@@ -1,12 +1,12 @@
 const express = require ("express")
 const cors = require ("cors")
-const { default: mongoose } = require("mongoose")
+const mongoose = require ('mongoose')
 const app = express()
 
 app.use(express.json())
 app.use(cors())
 
-const Filmes = mongoose.model ("Filme", mongoose.Schema ({
+const Filme = mongoose.model ("Filme", mongoose.Schema ({
   titulo: {type: String},
   sinopse: {type: String},
   ano: {type: String},
@@ -15,7 +15,7 @@ const Filmes = mongoose.model ("Filme", mongoose.Schema ({
 
 async function conectarAoMongoDB() {
   await 
-  mongoose.connect("mongodb+srv://caioonha:<db_password>@cluster0.wak6h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  mongoose.connect("mongodb+srv://caioonha:<caioonha>@cluster0.wak6h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 }
 
 let filmes = [
@@ -38,7 +38,7 @@ app.get("/filmes", (req, res) => {
   res.json(filmes)
 })
 
-app.post("/filmes", (req, res) => {
+app.post("/filmes", async (req, res) => {
   //Obtém os dados enviados pelo cliente
   const titulo = req.body.titulo
   const sinopse = req.body.sinopse
@@ -46,11 +46,11 @@ app.post("/filmes", (req, res) => {
   const classificacao = req.body.classificacao
 
   //Monta um objeto agrupando os dados. Ele representa um novo filme
-  const filme = {titulo: titulo, sinopse: sinopse, ano: ano, classificacao: classificacao}
+  const filme = new Filme ({titulo: titulo, sinopse: sinopse, ano: ano, classificacao: classificacao})
 
   //Adiciona o novo filme à base
-  filmes.push(filme
-    )
+  await filme.save()
+  const filmes = await Filme.find()
   //Responde ao cliente. Aqui, optamos por devolver a base interira ao clientne.
   res.json(filmes)
 })
@@ -59,6 +59,11 @@ app.post("/filmes", (req, res) => {
 app.get("/hey", (req, res) => {
     res.send("hey")
 })
+
+// app.get('/filmes', async (req, res) => {
+//   const filmes = await Filme.find()
+//   res.json(filmes)     
+//  })
 
 app.listen(3000, () => {
   try{
